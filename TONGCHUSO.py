@@ -1,7 +1,6 @@
 n = int(input("N = "))
 n = 2**n
 sum = 0
-while(n!=0):
-    sum+= n%10
-    n = n//10
-print(sum)
+for i in str(n):
+    sum+= int(i)
+print("Tong =",sum)
