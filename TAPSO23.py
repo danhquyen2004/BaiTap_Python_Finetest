@@ -1,3 +1,9 @@
+
+
+#bài này nộp không được điểm
+
+
+
 def in_tap_hop_N23(N):
     # Khởi tạo tập N23 và danh sách kết quả
     tap_hop_N23 = {1}
