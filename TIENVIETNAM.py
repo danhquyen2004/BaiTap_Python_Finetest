@@ -1,18 +1,24 @@
-def count_coin_combinations(N, M, coins):
-    if N == 0:
-        return 1
-
-    if M == 0 or N < 0:
-        return 0
-
-    total_combinations = 0
-    for coin in coins:
-        total_combinations += count_coin_combinations(N - coin, M - 1, coins)
-
-    return total_combinations
-coins = [5000, 2000, 1000, 500, 200]
+list = [5000, 2000, 1000, 500, 200]
+def back(n, m, i = 0, soto = 0, sotien = 0):
+    ii = 0
+    if i == 4:
+        if(n - sotien) % list[4] == 0 and (n - sotien) // list[4] + soto <= m:
+            return 1
+        else:
+            return 0
+    else:
+        a = max(0, ((n - sotien) - (m - soto) * list[i+1]) // list[i])
+        b = m - soto
+        for j in range(a, b+1):
+            tmp = sotien + j * list[i]
+            if tmp == n:
+                ii += 1
+            elif tmp < n:
+                ii += back(n, m, i+1, soto+j, tmp)
+            else:
+                return ii
+        return ii
 
 n = int(input("N = "))
 m = int(input("M = "))
-result = count_coin_combinations(n, m, coins)
-print("Số phương án đổi tiền:", result)
+print(f"Co {back(n,m)} phuong an doi tien")

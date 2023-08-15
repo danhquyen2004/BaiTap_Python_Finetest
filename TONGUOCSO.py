@@ -10,3 +10,4 @@ def TongUoc(n):
     return sum
 n = int(input("N = "))
 print("Tong cac uoc so cua %d" %n+" la %d" %TongUoc(n))
+
